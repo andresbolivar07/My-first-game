@@ -35,6 +35,7 @@ function randomValue() {
     let values = valuesUsed.filter(value => value === rnd);
     if (values.length < 2) {
         valuesUsed.push(rnd);
+        
     }else {
         randomValue();
     }
@@ -49,3 +50,4 @@ for (let i = 0; i < totalCards; i++) {
     cards[i].querySelectorAll('.face')[0].innerHTML = valuesUsed[i];
     cards[i].querySelectorAll('.card')[0].addEventListener('click', activate);
 }
+
