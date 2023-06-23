@@ -6,6 +6,8 @@ let currentMove = 0;
 
 let cardTemplate = '<div class="card"><div class="back"></div><div class="face"></div></div>';
 
+let counter = 0;
+
 function activate(e) {
     if (currentMove < 2) {
         e.target.classList.add('active');
@@ -16,6 +18,7 @@ function activate(e) {
             if (++currentMove == 2) {
                 if (selectedCards[0].querySelectorAll('.face')[0].innerHTML == selectedCards[1].querySelectorAll('.face')[0].innerHTML) {
                     selectedCards = [];
+                    counter++;
                     currentMove = 0;
                 }else {
                     setTimeout(() => {
@@ -25,6 +28,7 @@ function activate(e) {
                         currentMove = 0;
                     }, 600);
                 }
+                winGame();
             }
         }
     }
@@ -50,4 +54,12 @@ for (let i = 0; i < totalCards; i++) {
     cards[i].querySelectorAll('.face')[0].innerHTML = valuesUsed[i];
     cards[i].querySelectorAll('.card')[0].addEventListener('click', activate);
 }
+
+const winGame = () => {
+    if (counter === 6) {
+        resultWin.innerHTML = "Congratulations, you Win!";
+    }
+}
+const resultWin = document.getElementById("win");
+
 

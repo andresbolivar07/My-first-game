@@ -73,3 +73,9 @@ h1 {
 .card .back {
     border: 2px solid rgb(2, 2, 2);
 }
+
+#win {
+    font-size: 5em;
+    color: brown;
+    text-align: center;
+}
